@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumina Creative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Spline+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Spline Sans', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                blue: '#3b82f6', // Bright Blue
+                green: '#10b981', // Emerald Green
+                dark: '#050505',
+                card: '#0a0a0a',
+                border: 'rgba(255, 255, 255, 0.05)'
+              }
+            },
+            animation: {
+              'beam-fall-1': 'beam-fall 6s linear infinite',
+              'beam-fall-2': 'beam-fall 8s linear infinite',
+              'beam-fall-3': 'beam-fall 7s linear infinite',
+              'spin-slow': 'spin 3s linear infinite',
+            },
+            keyframes: {
+              'beam-fall': {
+                '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                '5%': { opacity: '0.5' },
+                '50%': { opacity: '1' },
+                '95%': { opacity: '0.5' },
+                '100%': { transform: 'translateY(100vh)', opacity: '0' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #ffffff;
+        font-weight: 300; /* Inter Light */
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 0px;
+      }
+      
+      .font-heading {
+        font-family: 'Spline Sans', sans-serif;
+      }
+
+      /* Glow utilities */
+      .glow-text {
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
