@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ArrowRight, X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { ArrowRight, X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface Project {

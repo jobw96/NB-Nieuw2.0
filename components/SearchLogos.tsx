@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Workflow, ShieldCheck, Gauge, MousePointerClick, Plug } from 'lucide-react';

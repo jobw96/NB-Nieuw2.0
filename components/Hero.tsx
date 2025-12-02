@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Wand2, Monitor, Download, Play, ScanLine, Video, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Wand2, Download, Play, ScanLine, Video, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
