@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Wand2, Monitor, Download, Play, ScanLine, Video, Check } from 'lucide-react';
@@ -13,25 +14,8 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-12 px-6 overflow-hidden">
+    <section className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-12 px-6 overflow-hidden bg-[#050505]">
       
-      {/* Spline 3D Background */}
-      <div className="absolute top-0 left-0 w-full h-full z-0">
-        <iframe
-          src="https://my.spline.design/3dgradient-AcpgG6LxFkpnJSoowRHPfcbO"
-          frameBorder="0"
-          width="100%"
-          height="100%"
-          id="aura-spline"
-          className="w-full h-full opacity-80"
-          title="Spline 3D Gradient"
-          style={{ border: 'none' }}
-        />
-        {/* Gradient Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-[#050505]/20 pointer-events-none" />
-      </div>
-
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-4 items-center relative z-10">
         
         {/* Text Content */}
