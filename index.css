@@ -1,21 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-    --font-sans: 'Inter', sans-serif;
-    --font-heading: 'Spline Sans', sans-serif;
-
-    --color-brand-blue: #3b82f6;
-    --color-brand-green: #10b981;
-    --color-brand-dark: #050505;
-    --color-brand-card: #0a0a0a;
-    --color-brand-border: rgba(255, 255, 255, 0.05);
-
-    --animate-beam-fall-1: beam-fall 6s linear infinite;
-    --animate-beam-fall-2: beam-fall 8s linear infinite;
-    --animate-beam-fall-3: beam-fall 7s linear infinite;
-    --animate-spin-slow: spin 3s linear infinite;
-}
-
 @keyframes beam-fall {
     0% {
         transform: translateY(-100%);
@@ -40,26 +24,39 @@
     }
 }
 
-@layer base {
-    body {
-        background-color: #050505;
-        color: #ffffff;
-        font-weight: 300;
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-        width: 0px;
-    }
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-weight: 300;
 }
 
-@layer utilities {
-    .font-heading {
-        font-family: 'Spline Sans', sans-serif;
-    }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+}
 
-    /* Glow utilities */
-    .glow-text {
-        text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    }
+.font-heading {
+    font-family: 'Spline Sans', sans-serif;
+}
+
+/* Glow utilities */
+.glow-text {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Animation utilities */
+.animate-beam-fall-1 {
+    animation: beam-fall 6s linear infinite;
+}
+
+.animate-beam-fall-2 {
+    animation: beam-fall 8s linear infinite;
+}
+
+.animate-beam-fall-3 {
+    animation: beam-fall 7s linear infinite;
+}
+
+.animate-spin-slow {
+    animation: spin 3s linear infinite;
 }
