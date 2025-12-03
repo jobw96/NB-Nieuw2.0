@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, Monitor, Palette, ShoppingBag, Video } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -18,7 +19,43 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    setIsServicesOpen(false);
   }, [location]);
+
+  const services = [
+    {
+      title: "Webdesign",
+      desc: "Ontwerp van visueel sterke websites.",
+      icon: Monitor,
+      color: "text-blue-400",
+      bgColor: "bg-blue-400/10",
+      link: "/#diensten"
+    },
+    {
+      title: "Branding",
+      desc: "Creëren van unieke merkidentiteiten.",
+      icon: Palette,
+      color: "text-emerald-400",
+      bgColor: "bg-emerald-400/10",
+      link: "/#diensten"
+    },
+    {
+      title: "E-commerce",
+      desc: "Bouwen van converterende webshops.",
+      icon: ShoppingBag,
+      color: "text-yellow-400",
+      bgColor: "bg-yellow-400/10",
+      link: "/#diensten"
+    },
+    {
+      title: "Video's",
+      desc: "Productie van professionele video content.",
+      icon: Video,
+      color: "text-rose-400",
+      bgColor: "bg-rose-400/10",
+      link: "/#diensten"
+    }
+  ];
 
   return (
     <nav 
@@ -39,7 +76,57 @@ const Navbar: React.FC = () => {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-xs font-medium tracking-widest uppercase text-neutral-400">
           <Link to="/" className="hover:text-white transition-colors duration-300">Home</Link>
-          <a href="/#diensten" className="hover:text-white transition-colors duration-300">Diensten</a>
+          
+          {/* Services Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+          >
+            <button 
+              className={`flex items-center gap-1 hover:text-white transition-colors duration-300 uppercase tracking-widest ${isServicesOpen ? 'text-white' : ''}`}
+            >
+              Diensten <ChevronDown size={14} className={`transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {isServicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, x: "-50%", scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
+                  exit={{ opacity: 0, y: 10, x: "-50%", scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-1/2 pt-6 w-[550px]"
+                >
+                  <div className="bg-[#080808] border border-white/10 rounded-2xl p-6 shadow-2xl grid grid-cols-2 gap-4 relative overflow-hidden">
+                    {/* Glow Effect */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-brand-blue/50 to-transparent opacity-50" />
+                    
+                    {services.map((service, index) => (
+                      <a 
+                        key={index} 
+                        href={service.link}
+                        className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group"
+                      >
+                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${service.bgColor} ${service.color}`}>
+                          <service.icon size={20} />
+                        </div>
+                        <div>
+                          <h4 className="text-white font-bold text-sm mb-1 normal-case tracking-normal group-hover:text-brand-blue transition-colors">
+                            {service.title}
+                          </h4>
+                          <p className="text-zinc-500 text-xs font-light normal-case tracking-normal leading-relaxed">
+                            {service.desc}
+                          </p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <Link to="/projecten" className="hover:text-white transition-colors duration-300">Werk</Link>
           <Link to="/over-ons" className="hover:text-white transition-colors duration-300">Over Ons</Link>
           <Link to="/blog" className="hover:text-white transition-colors duration-300">Blog</Link>
