@@ -1,4 +1,28 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#050505] text-white font-light;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+}
+
+@layer utilities {
+    .font-heading {
+        font-family: 'Spline Sans', sans-serif;
+    }
+
+    /* Glow utilities */
+    .glow-text {
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+}
 
 @keyframes beam-fall {
     0% {
@@ -22,41 +46,4 @@
         transform: translateY(100vh);
         opacity: 0;
     }
-}
-
-body {
-    background-color: #050505;
-    color: #ffffff;
-    font-weight: 300;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 0px;
-}
-
-.font-heading {
-    font-family: 'Spline Sans', sans-serif;
-}
-
-/* Glow utilities */
-.glow-text {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-}
-
-/* Animation utilities */
-.animate-beam-fall-1 {
-    animation: beam-fall 6s linear infinite;
-}
-
-.animate-beam-fall-2 {
-    animation: beam-fall 8s linear infinite;
-}
-
-.animate-beam-fall-3 {
-    animation: beam-fall 7s linear infinite;
-}
-
-.animate-spin-slow {
-    animation: spin 3s linear infinite;
 }
